@@ -9,6 +9,8 @@ import { NextIntlClientProvider } from "next-intl";
 import ThemeProvider from "@/components/theme/theme-provider";
 import ScreenQueryInfo from "@/components/screen-query-info";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,7 +56,9 @@ export default async function RootLayout({
         </Script>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Navigation />
             {children}
+            <Footer />
             <ScrollToTop />
             <ScreenQueryInfo size="lg" position={{ x: "left", y: "bottom" }} />
           </ThemeProvider>

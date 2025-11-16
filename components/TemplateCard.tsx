@@ -12,33 +12,32 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/routing";
 
 interface TemplateCardProps {
+  previuv: string;
   id: string;
   title: string;
   description: string;
   price: string;
   features: string[];
-  icon: React.ReactNode;
   category: string;
 }
 
 export const TemplateCard = ({
+  previuv,
   id,
   title,
   description,
   price,
   features,
-  icon,
   category,
 }: TemplateCardProps) => {
   const templateId = id;
   return (
     <Card className="group flex h-full flex-col overflow-hidden bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
       {/* Template Preview Area */}
-      <div className="relative flex aspect-video items-center justify-center overflow-hidden border-b border-border/50 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-20" />
-        <div className="relative rounded-xl bg-primary/20 p-4 text-primary backdrop-blur-sm">
-          {icon}
-        </div>
+      <div
+        style={{ backgroundImage: `url("${previuv}")` }}
+        className="bg-gradient relative flex aspect-video items-center justify-center overflow-hidden rounded-lg border-b border-border/50 bg-cover bg-center"
+      >
         <Badge
           variant="secondary"
           className="absolute right-3 top-3 text-xs font-medium"

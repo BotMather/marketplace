@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 
 export interface Template {
+  previuv: string;
   id: string;
   category: string;
   title: string;
@@ -55,6 +56,8 @@ export const TEMPLATE_CATEGORIES = [
 export const TEMPLATES: Template[] = [
   // 1. Qabulga yozilish kategoriyasi
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
     id: "beauty-salon",
     category: "Qabulga yozilish",
     title: "Go'zallik saloni boti",
@@ -70,6 +73,8 @@ export const TEMPLATES: Template[] = [
     icon: Calendar,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/umEaH_Iu9uQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLDZHIzZOh1FCvPDD6M7Yip92Pb2Gw",
     id: "barbershop",
     category: "Qabulga yozilish",
     title: "Sartaroshxona / Barber boti",
@@ -85,6 +90,9 @@ export const TEMPLATES: Template[] = [
     icon: Scissors,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/OIgCkPHB5BE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA-_k8q6SwrVvN7Ywn8pzF6-FC4GQ",
+
     id: "psychologist",
     category: "Qabulga yozilish",
     title: "Psixolog boti",
@@ -100,6 +108,9 @@ export const TEMPLATES: Template[] = [
     icon: Heart,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/tDlSJcCMfRw/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAQUu9_wfMOu0tPE7RZ55IbDoC0Ew",
+
     id: "doctor-office",
     category: "Qabulga yozilish",
     title: "Shifokor / Stomatolog boti",
@@ -115,6 +126,9 @@ export const TEMPLATES: Template[] = [
     icon: Stethoscope,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/Y8zsDTXBCUM/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDbyYxV-OWjYK-vINjMVLMZ143Tzg",
+
     id: "fitness-trainer",
     category: "Qabulga yozilish",
     title: "Fitnes / Yoga trener boti",
@@ -130,6 +144,9 @@ export const TEMPLATES: Template[] = [
     icon: Dumbbell,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/u5DDbgZgB3c/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBkBJnwObMI7zxpZuFtw9u7YvE1gQ",
+
     id: "auto-service",
     category: "Qabulga yozilish",
     title: "Avto xizmat boti",
@@ -145,6 +162,9 @@ export const TEMPLATES: Template[] = [
     icon: Wrench,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "veterinary",
     category: "Qabulga yozilish",
     title: "Veterinariya klinika boti",
@@ -160,6 +180,9 @@ export const TEMPLATES: Template[] = [
     icon: Heart,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "photo-video",
     category: "Qabulga yozilish",
     title: "Fotosessiya / Videograf boti",
@@ -177,6 +200,9 @@ export const TEMPLATES: Template[] = [
 
   // 2. Katalog kategoriyasi
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "clothing-store",
     category: "Katalog",
     title: "Kiyim-kechak butik boti",
@@ -191,6 +217,9 @@ export const TEMPLATES: Template[] = [
     icon: Shirt,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "electronics-store",
     category: "Katalog",
     title: "Elektronika do'koni boti",
@@ -205,6 +234,9 @@ export const TEMPLATES: Template[] = [
     icon: Laptop,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "online-shop",
     category: "Katalog",
     title: "Onlayn do'kon boti",
@@ -220,6 +252,9 @@ export const TEMPLATES: Template[] = [
     icon: ShoppingCart,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "cake-studio",
     category: "Katalog",
     title: "Tort studiya boti",
@@ -235,6 +270,9 @@ export const TEMPLATES: Template[] = [
     icon: Cake,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "flower-shop",
     category: "Katalog",
     title: "Gul do'koni boti",
@@ -249,6 +287,9 @@ export const TEMPLATES: Template[] = [
     icon: Flower2,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "kids-toys",
     category: "Katalog",
     title: "Bolalar tovarlari boti",
@@ -264,6 +305,9 @@ export const TEMPLATES: Template[] = [
     icon: Baby,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "handmade",
     category: "Katalog",
     title: "Qo'l mehnati mahsulotlar boti",
@@ -281,6 +325,9 @@ export const TEMPLATES: Template[] = [
 
   // 3. Yetkazib berish kategoriyasi
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "restaurant-delivery",
     category: "Yetkazib berish",
     title: "Restoran yetkazib berish boti",
@@ -295,6 +342,9 @@ export const TEMPLATES: Template[] = [
     icon: UtensilsCrossed,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "pharmacy-delivery",
     category: "Yetkazib berish",
     title: "Dorixona yetkazib berish boti",
@@ -309,6 +359,9 @@ export const TEMPLATES: Template[] = [
     icon: Pill,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "supermarket",
     category: "Yetkazib berish",
     title: "Supermarket yetkazib berish boti",
@@ -324,6 +377,9 @@ export const TEMPLATES: Template[] = [
     icon: Store,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "flower-delivery",
     category: "Yetkazib berish",
     title: "Gul yetkazib berish boti",
@@ -338,6 +394,9 @@ export const TEMPLATES: Template[] = [
     icon: Flower2,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "food-delivery",
     category: "Yetkazib berish",
     title: "Pitsa / Desert / Qahva boti",
@@ -354,6 +413,9 @@ export const TEMPLATES: Template[] = [
 
   // 4. Logistika kategoriyasi
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "international-cargo",
     category: "Logistika",
     title: "Xalqaro kargo boti",
@@ -368,6 +430,9 @@ export const TEMPLATES: Template[] = [
     icon: Package,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "local-courier",
     category: "Logistika",
     title: "Mahalliy courier boti",
@@ -382,6 +447,9 @@ export const TEMPLATES: Template[] = [
     icon: Truck,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "warehouse",
     category: "Logistika",
     title: "Ombor xizmatlari boti",
@@ -398,6 +466,9 @@ export const TEMPLATES: Template[] = [
 
   // 5. Transport kategoriyasi
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "taxi-park",
     category: "Transport",
     title: "Taxi park boti",
@@ -412,6 +483,9 @@ export const TEMPLATES: Template[] = [
     icon: Car,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "minibus",
     category: "Transport",
     title: "Mikroavtobus / Yollanma mashina boti",
@@ -427,6 +501,9 @@ export const TEMPLATES: Template[] = [
     icon: Bus,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "company-transport",
     category: "Transport",
     title: "Kompaniya transport boti",
@@ -443,6 +520,9 @@ export const TEMPLATES: Template[] = [
 
   // 6. Ta'lim kategoriyasi
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "language-courses",
     category: "Ta'lim",
     title: "Til kurslari boti",
@@ -458,6 +538,9 @@ export const TEMPLATES: Template[] = [
     icon: GraduationCap,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "it-courses",
     category: "Ta'lim",
     title: "IT kurslari boti",
@@ -472,6 +555,9 @@ export const TEMPLATES: Template[] = [
     icon: Laptop,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "online-tutor",
     category: "Ta'lim",
     title: "Repetitor boti",
@@ -486,6 +572,9 @@ export const TEMPLATES: Template[] = [
     icon: BookOpen,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "online-school",
     category: "Ta'lim",
     title: "Onlayn maktab boti",
@@ -500,6 +589,9 @@ export const TEMPLATES: Template[] = [
     icon: GraduationCap,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "workshop",
     category: "Ta'lim",
     title: "Workshop / Webinar boti",
@@ -517,6 +609,9 @@ export const TEMPLATES: Template[] = [
 
   // 7. Shaxsiy brend kategoriyasi
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "blogger",
     category: "Shaxsiy brend",
     title: "Bloger boti",
@@ -531,6 +626,9 @@ export const TEMPLATES: Template[] = [
     icon: User,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "trainer-motivator",
     category: "Shaxsiy brend",
     title: "Trener / Motivator boti",
@@ -545,6 +643,9 @@ export const TEMPLATES: Template[] = [
     icon: Dumbbell,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "consultant",
     category: "Shaxsiy brend",
     title: "Konsultant boti",
@@ -559,6 +660,9 @@ export const TEMPLATES: Template[] = [
     icon: Briefcase,
   },
   {
+    previuv:
+      "https://i.ytimg.com/vi/RdXu45ceJrE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCTkEjT-QLhg6T8_ptkBX5F1ZhE8w",
+
     id: "hr-trainer",
     category: "Shaxsiy brend",
     title: "HR / Biznes trener boti",

@@ -1,95 +1,204 @@
-"use client";
-
 import * as React from "react";
-import { Phone } from "lucide-react";
+import { CheckIcon, ChevronsUpDown } from "lucide-react";
+import * as RPNInput from "react-phone-number-input";
+import flags from "react-phone-number-input/flags";
+
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { Input } from "@/components/ui/input";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 
-export interface PhoneInputProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    "value" | "onChange"
-  > {
-  value: string;
-  onChange: (value: string) => void;
-  error?: string;
-}
+type PhoneInputProps = Omit<
+  React.ComponentProps<"input">,
+  "onChange" | "value" | "ref"
+> &
+  Omit<RPNInput.Props<typeof RPNInput.default>, "onChange"> & {
+    onChange?: (value: RPNInput.Value) => void;
+  };
 
-const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
-  ({ className, value, onChange, error, disabled, ...props }, ref) => {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      let inputValue = e.target.value;
-
-      // Remove all non-digit characters
-      inputValue = inputValue.replace(/\D/g, "");
-
-      // Limit to 9 digits (after +998)
-      if (inputValue.length > 9) {
-        inputValue = inputValue.slice(0, 9);
-      }
-
-      // Always prepend +998
-      const fullValue = "+998" + inputValue;
-      onChange(fullValue);
-    };
-
-    // Get digits only (without +998)
-    const digits = value.replace(/\D/g, "").slice(3) || "";
-
-    // Format display value: 90 123 45 67
-    const formatDisplayValue = (digs: string) => {
-      if (digs.length === 0) return "";
-
-      // Format: XX XXX XX XX
-      let formatted = "";
-
-      if (digs.length > 0) {
-        formatted = digs.slice(0, 2);
-      }
-      if (digs.length > 2) {
-        formatted += " " + digs.slice(2, 5);
-      }
-      if (digs.length > 5) {
-        formatted += " " + digs.slice(5, 7);
-      }
-      if (digs.length > 7) {
-        formatted += " " + digs.slice(7, 9);
-      }
-
-      return formatted;
-    };
-
-    const displayValue = formatDisplayValue(digits);
-
-    return (
-      <div className="relative">
-        <div className="absolute left-3 top-1/2 flex -translate-y-1/2 items-center gap-2">
-          <Phone className="h-4 w-4 text-muted-foreground" />
-          <span className="text-sm font-medium text-muted-foreground">
-            +998
-          </span>
-        </div>
-        <input
+const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
+  React.forwardRef<React.ElementRef<typeof RPNInput.default>, PhoneInputProps>(
+    ({ className, onChange, value, ...props }, ref) => {
+      return (
+        <RPNInput.default
           ref={ref}
-          type="tel"
-          inputMode="numeric"
-          value={displayValue}
-          onChange={handleChange}
-          disabled={disabled}
-          className={cn(
-            "flex h-12 w-full rounded-lg border bg-background py-2 pl-20 pr-4 text-base font-medium transition-colors placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-            error
-              ? "border-destructive focus-visible:ring-destructive"
-              : "border-input",
-            className,
-          )}
-          placeholder="90 123 45 67"
+          className={cn("flex", className)}
+          flagComponent={FlagComponent}
+          countrySelectComponent={CountrySelect}
+          inputComponent={InputComponent}
+          smartCaret={false}
+          value={value || undefined}
+          /**
+           * Handles the onChange event.
+           *
+           * react-phone-number-input might trigger the onChange event as undefined
+           * when a valid phone number is not entered. To prevent this,
+           * the value is coerced to an empty string.
+           *
+           * @param {E164Number | undefined} value - The entered value
+           */
+          onChange={(value) => onChange?.(value || ("" as RPNInput.Value))}
           {...props}
         />
-      </div>
-    );
-  },
-);
-
+      );
+    },
+  );
 PhoneInput.displayName = "PhoneInput";
+
+const InputComponent = React.forwardRef<
+  HTMLInputElement,
+  React.ComponentProps<"input">
+>(({ className, ...props }, ref) => (
+  <Input
+    className={cn("rounded-e-lg rounded-s-none", className)}
+    {...props}
+    ref={ref}
+  />
+));
+InputComponent.displayName = "InputComponent";
+
+type CountryEntry = { label: string; value: RPNInput.Country | undefined };
+
+type CountrySelectProps = {
+  disabled?: boolean;
+  value: RPNInput.Country;
+  options: CountryEntry[];
+  onChange: (country: RPNInput.Country) => void;
+};
+
+const CountrySelect = ({
+  disabled,
+  value: selectedCountry,
+  options: countryList,
+  onChange,
+}: CountrySelectProps) => {
+  const scrollAreaRef = React.useRef<HTMLDivElement>(null);
+  const [searchValue, setSearchValue] = React.useState("");
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <Popover
+      open={isOpen}
+      modal
+      onOpenChange={(open) => {
+        setIsOpen(open);
+        open && setSearchValue("");
+      }}
+    >
+      <PopoverTrigger asChild>
+        <Button
+          type="button"
+          variant="outline"
+          className="flex gap-1 rounded-e-none rounded-s-lg border-r-0 px-3 focus:z-10"
+          disabled={disabled}
+        >
+          <FlagComponent
+            country={selectedCountry}
+            countryName={selectedCountry}
+          />
+          <ChevronsUpDown
+            className={cn(
+              "-mr-2 size-4 opacity-50",
+              disabled ? "hidden" : "opacity-100",
+            )}
+          />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[300px] p-0">
+        <Command>
+          <CommandInput
+            value={searchValue}
+            onValueChange={(value) => {
+              setSearchValue(value);
+              setTimeout(() => {
+                if (scrollAreaRef.current) {
+                  const viewportElement = scrollAreaRef.current.querySelector(
+                    "[data-radix-scroll-area-viewport]",
+                  );
+                  if (viewportElement) {
+                    viewportElement.scrollTop = 0;
+                  }
+                }
+              }, 0);
+            }}
+            placeholder="Search country..."
+          />
+          <CommandList>
+            <ScrollArea ref={scrollAreaRef} className="h-72">
+              <CommandEmpty>No country found.</CommandEmpty>
+              <CommandGroup>
+                {countryList.map(({ value, label }) =>
+                  value ? (
+                    <CountrySelectOption
+                      key={value}
+                      country={value}
+                      countryName={label}
+                      selectedCountry={selectedCountry}
+                      onChange={onChange}
+                      onSelectComplete={() => setIsOpen(false)}
+                    />
+                  ) : null,
+                )}
+              </CommandGroup>
+            </ScrollArea>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
+interface CountrySelectOptionProps extends RPNInput.FlagProps {
+  selectedCountry: RPNInput.Country;
+  onChange: (country: RPNInput.Country) => void;
+  onSelectComplete: () => void;
+}
+
+const CountrySelectOption = ({
+  country,
+  countryName,
+  selectedCountry,
+  onChange,
+  onSelectComplete,
+}: CountrySelectOptionProps) => {
+  const handleSelect = () => {
+    onChange(country);
+    onSelectComplete();
+  };
+
+  return (
+    <CommandItem className="gap-2" onSelect={handleSelect}>
+      <FlagComponent country={country} countryName={countryName} />
+      <span className="flex-1 text-sm">{countryName}</span>
+      <span className="text-sm text-foreground/50">{`+${RPNInput.getCountryCallingCode(country)}`}</span>
+      <CheckIcon
+        className={`ml-auto size-4 ${country === selectedCountry ? "opacity-100" : "opacity-0"}`}
+      />
+    </CommandItem>
+  );
+};
+
+const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
+  const Flag = flags[country];
+
+  return (
+    <span className="flex h-4 w-6 overflow-hidden rounded-sm bg-foreground/20 [&_svg:not([class*='size-'])]:size-full">
+      {Flag && <Flag title={countryName} />}
+    </span>
+  );
+};
 
 export { PhoneInput };

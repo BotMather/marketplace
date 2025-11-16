@@ -91,3 +91,113 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Animations for page sections */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-section {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+/* Elements with slideInUp animation start invisible */
+[style*="animation: slideInUp"] {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Fallback: if JavaScript is disabled, sections should still be visible */
+@supports not (animation: slideInUp) {
+  .fade-in-section,
+  [style*="animation: slideInUp"] {
+    opacity: 1 !important;
+  }
+}
+
+.animation-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-4 {
+  animation-delay: 0.4s;
+}
+
+/* Scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll-animate {
+  opacity: 0;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.scroll-animate.animate-visible {
+  opacity: 1;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.scroll-animate-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.scroll-animate-fade.animate-visible {
+  opacity: 1;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.scroll-animate-scale.animate-visible {
+  opacity: 1;
+  transform: scale(1);
+  animation: scaleIn 0.8s ease-out forwards;
+}
