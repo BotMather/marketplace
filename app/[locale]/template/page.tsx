@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Search, Filter, X } from "lucide-react";
-import { TemplateCard, TemplateCardSkeleton } from "@/components/TemplateCard";
+import { TemplateCardSkeleton } from "@/components/TemplateCard";
 import { BlurText } from "@/components/blur-text";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import { useReactQueryAction } from "@/services/use-react-query-action";
 import { APIListResponse } from "@/types/http";
 import { Category, Feature, TemplateListType } from "@/types/template";
 import { Skeleton } from "@/components/ui/skeleton";
+import TemplateCardV2 from "@/components/TemplateCardV2";
 
 export default function TemplatesPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -267,7 +268,7 @@ export default function TemplatesPage() {
                         animation: `slideInUp 0.5s ease-out forwards`,
                       }}
                     >
-                      <TemplateCard {...template} />
+                      <TemplateCardV2 {...template} />
                     </div>
                   );
                 })}

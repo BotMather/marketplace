@@ -16,18 +16,13 @@ export default function Page() {
     url: "/api/template/[id]",
   });
 
-  console.log(
-    "🔍 ~ Page ~ app/[locale]/template/[id]/page.tsx:9 ~ data:",
-    data,
-  );
-
   if (data)
     return (
       <main className="min-h-screen bg-background">
         <div className="border-b border-border/50" />
         <HeroSection data={data.data} />
         <TemplateStats />
-        <AboutSection />
+        <AboutSection data={data.data} />
         <RelatedTemplates />
         <Footer />
       </main>

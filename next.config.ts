@@ -5,15 +5,7 @@ const nextConfig: NextConfig = {
   basePath: "/website",
   assetPrefix: "/website",
   images: {
-    path: "/website/_next/image",
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "api.botmother.uz",
-        port: "",
-        pathname: "/resources/media/template/**",
-      },
-    ],
+    domains: ["localhost", "localhost:3002", "api.botmother.uz"], // SALES_URL domeni
   },
 };
 

@@ -3,12 +3,26 @@
 import { TemplateDetailType } from "@/types/template";
 import { useSession } from "next-auth/react";
 import { OtpAuthDialog } from "./otp-dialog";
-import { useState } from "react";
+import MagicButton from "@/components/magic-button";
+import { instanceAuth } from "@/services/instance";
+import { useLinkToParent } from "@/lib/link-to-parrent";
+import toast from "react-hot-toast";
 
 export function HeroSection({ data }: { data: TemplateDetailType }) {
-  const [otpIsOpen, setOTPIsOpen] = useState(false);
-
   const session = useSession();
+
+  const { handleClick } = useLinkToParent({
+    href: "/templates?show=true&template_id=" + data.id,
+  });
+
+  async function handleUseTemplate() {
+    const response = await instanceAuth.post("/order/", {
+      template: data.id,
+    });
+
+    if (response.status === 201) handleClick();
+    else toast.error("Xatolik yuz berdi iltimos admin bilan bog'laning");
+  }
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -42,10 +56,13 @@ export function HeroSection({ data }: { data: TemplateDetailType }) {
             </OtpAuthDialog>
           </>
         ) : data.price <= 0 ? (
-          <button className="rounded-full bg-foreground px-6 py-3 font-semibold text-background transition-opacity hover:opacity-90">
-            Bepul olish!
-          </button>
+          <MagicButton onClick={() => handleUseTemplate()}>
+            Foydalanish
+          </MagicButton>
         ) : (
+          // <button className="rounded-full bg-foreground px-6 py-3 font-semibold text-background transition-opacity hover:opacity-90">
+          //   Bepul olish!
+          // </button>
           <button className="rounded-full bg-foreground px-6 py-3 font-semibold text-background transition-opacity hover:opacity-90">
             Sotib olish
           </button>

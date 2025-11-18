@@ -5,9 +5,15 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { OtpAuthDialog } from "@/app/[locale]/template/[id]/sections/otp-dialog";
+import { useLinkToParent } from "@/lib/link-to-parrent";
 
 export function Navigation() {
   const session = useSession();
+
+  const { handleClick: goHomePage } = useLinkToParent({
+    href: "/",
+    onClick: (e) => console.log("Clicked!"),
+  });
 
   useEffect(() => {
     console.log(session);
@@ -50,7 +56,12 @@ export function Navigation() {
               </button>
             </OtpAuthDialog>
           ) : (
-            <></>
+            <>
+              <b onClick={goHomePage} className="cursor-pointer">
+                {session.data?.user.first_name}.{" "}
+                {session.data?.user.last_name?.charAt(0)}
+              </b>
+            </>
           )}
         </div>
       </div>
