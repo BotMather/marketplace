@@ -15,7 +15,7 @@ FROM node:22-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
-RUN apk add curl
+RUN apt update && apt install curl
 
 # Copy built application and node modules from the builder stage
 COPY --from=builder /app ./
